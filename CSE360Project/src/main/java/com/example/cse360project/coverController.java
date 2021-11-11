@@ -48,6 +48,7 @@ public class coverController {
         stage.setScene(new Scene(root));
         stage.setTitle("Doctor Portal");
         stage.show();
+        //random comment
     }
 
 }
