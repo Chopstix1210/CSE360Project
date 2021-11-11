@@ -1,7 +1,6 @@
 package com.example.cse360project;
 
 import javafx.application.Application;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +25,7 @@ public class mainApp extends Application {
         primaryStage.setTitle("Welcome to the Portal!");
         primaryStage.setScene(new Scene(root, 1280.0,800.0));
         primaryStage.show();
+        //adding this comment to update the github and check for VCS compatibility
     }
 
 
