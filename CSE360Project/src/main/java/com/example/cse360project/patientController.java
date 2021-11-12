@@ -5,17 +5,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class patientController {
 
 
     public VBox newPatient, returnPatient, mainPatient;
+    public Button saveInfo, signIn;
+    public TextField fName, lName, birthday, email, phoneNumber, password;
+    public TextField logEmail, logPassword;
 
     //keeping this here for testing
 /*
@@ -57,4 +60,53 @@ public class patientController {
         returnPatient.setVisible(false);
         newPatient.setVisible(false);
     }
+
+    //save information button and login button
+    public void handleSaveInfo(){
+        //going to save the information to a text file
+
+        try{
+            String firstName = fName.getText();
+            String lastName = lName.getText();
+            String bDay = birthday.getText();
+            String pEmail = email.getText();
+            String phone = phoneNumber.getText();
+            String pass = password.getText();
+            FileWriter myFile = new FileWriter("PatientInformation.txt", true);
+            BufferedWriter patientFile = new BufferedWriter(myFile);
+            patientFile.write(firstName + "," + lastName + "," + bDay + "," + pEmail + "," + phone + "," + pass + "\n");
+            patientFile.close();
+            myFile.close();
+        }
+        catch(IOException exception){
+            System.out.println("ERROR");
+            exception.printStackTrace();
+        }
+    }
+    public void handleLogIn(){
+        String email = logEmail.getText().toLowerCase();
+        String pass = logPassword.getText();
+
+        try{
+            File myFile = new File("PatientInformation.txt");
+            Scanner searcher = new Scanner(myFile);
+            while(searcher.hasNextLine()){
+                String[] array = searcher.nextLine().split(",");
+                if(array[3].equals(email)){
+                    if(array[5].equals(pass)){
+                        System.out.println("USER FOUND!");
+                        return;
+                    }
+                }
+            }
+            System.out.println("USER NOT FOUND!");
+            searcher.close();
+        }
+        catch(FileNotFoundException exception){
+            System.out.println("ERROR");
+            exception.printStackTrace();
+        }
+
+    }
+
 }
