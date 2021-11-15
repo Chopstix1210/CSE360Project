@@ -17,7 +17,7 @@ public class coverController {
     public Label mainLabel,patLabel,docLabel;
 
     public void handlePatientButtonClick() throws IOException {
-        System.out.println("Patient Button Clicked!");
+        //System.out.println("Patient Button Clicked!");
 
         //trying to get main stage to close
         Stage closeScene = (Stage) patientButton.getScene().getWindow(); // get main scene
@@ -34,7 +34,7 @@ public class coverController {
     }
 
     public void handleDoctorButtonClick() throws IOException {
-        System.out.println("Doctor Button Clicked!");
+       // System.out.println("Doctor Button Clicked!");
 
         //copy of main stage close
         Stage closeScene = (Stage) patientButton.getScene().getWindow(); // get main scene

@@ -131,13 +131,19 @@
                <Insets bottom="10.0" />
             </padding>
          </HBox>
-         <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="345.0">
+         <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="345.0" spacing="20.0">
             <children>
-               <Button fx:id="FromReturnToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient" prefHeight="46.0" prefWidth="135.0" text="Back" />
+               <Button fx:id="FromReturnToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient" prefHeight="46.0" prefWidth="135.0" text="Back">
+                  <padding>
+                     <Insets right="10.0" />
+                  </padding></Button>
                <Button fx:id="signIn" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="135.0" text="Log In">
                   <HBox.margin>
                      <Insets right="20.0" />
-                  </HBox.margin></Button>
+                  </HBox.margin>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding></Button>
             </children>
          </HBox>
       </children>

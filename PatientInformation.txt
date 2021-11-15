@@ -1,2 +1,9 @@
-Kevin,Segovia,09/17/2000,kevinks1210@gmail.com,5204501127,kevinks1210!
-Joe,Mama,01/01/2000,joemama@gmail.com,4804561234,Password123!
+kevinks1210@gmail.com,kevinks1210!
+joemama@gmail.com,yep
+16president@gmail.com,topofthemorning
+donda@gmail.com,24hours
+Visits:
+Health:
+Meds:
+Immune:
+Recs:

@@ -1,0 +1,13 @@
+FirstName:kanye
+MiddleName: 
+LastName:west
+DOB:06/08/1977
+Phone:5678921010
+Email:donda@gmail.com
+Pharmacy: 
+Insurance:
+Health:
+Meds:
+Imm:
+Rec:
+Visits:
