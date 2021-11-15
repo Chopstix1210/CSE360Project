@@ -12,13 +12,16 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.Scanner;
 
-public class patientController {
+public class patientController extends PatientHomeController{
 
 
     public VBox newPatient, returnPatient, mainPatient;
     public Button saveInfo, signIn;
     public TextField fName, lName, birthday, email, phoneNumber, password;
     public TextField logEmail, logPassword;
+    String Email;
+
+
 
     //keeping this here for testing
 /*
@@ -62,29 +65,68 @@ public class patientController {
     }
 
     //save information button and login button
-    public void handleSaveInfo(){
+
+    public void handleSaveInfo() throws IOException {
         //going to save the information to a text file
 
+        String pEmail = email.getText();
         try{
             String firstName = fName.getText();
             String lastName = lName.getText();
             String bDay = birthday.getText();
-            String pEmail = email.getText();
             String phone = phoneNumber.getText();
             String pass = password.getText();
             FileWriter myFile = new FileWriter("PatientInformation.txt", true);
             BufferedWriter patientFile = new BufferedWriter(myFile);
-            patientFile.write(firstName + "," + lastName + "," + bDay + "," + pEmail + "," + phone + "," + pass + "\n");
+            patientFile.write(pEmail + "," + pass + "\n");
             patientFile.close();
             myFile.close();
+
+            String openFile = pEmail + ".txt";
+            File check = new File(openFile);
+            if(check.exists()){
+                System.out.println("File Exists! Can't create duplicate! Exiting....");
+            }
+            else{
+                FileWriter newFile = new FileWriter(openFile);
+                newFile.write(
+                        "FirstName:" + firstName + "\n" +
+                            "MiddleName:" + " " + "\n" +
+                            "LastName:" + lastName + "\n" +
+                            "DOB:" + bDay + "\n" +
+                            "Phone:" + phone + "\n" +
+                            "Email:" + pEmail + "\n" +
+                            "Pharmacy:" + " " + "\n" +
+                            "Insurance:" + " " + "\n" +
+                            "Health:" + " " + "\n" +
+                            "Meds:" + " " + "\n" +
+                            "Imm:" + " " + "\n" +
+                            "Rec:" + " " + "\n" +
+                            "Visits:" + " " + "\n");
+                newFile.close();
+            }
         }
         catch(IOException exception){
             System.out.println("ERROR");
             exception.printStackTrace();
         }
+
+        Stage closeScene = (Stage) signIn.getScene().getWindow();
+        closeScene.close();
+        PatientHomeController.Email = pEmail;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientHomePage.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.close();
+        Scene newScene = new Scene(root);
+        stage.setScene(newScene);
+        stage.setTitle("Welcome!");
+        stage.show();
+
     }
     public void handleLogIn(){
-        String email = logEmail.getText().toLowerCase();
+        Email = logEmail.getText().toLowerCase();
         String pass = logPassword.getText();
 
         try{
@@ -92,9 +134,24 @@ public class patientController {
             Scanner searcher = new Scanner(myFile);
             while(searcher.hasNextLine()){
                 String[] array = searcher.nextLine().split(",");
-                if(array[3].equals(email)){
-                    if(array[5].equals(pass)){
-                        System.out.println("USER FOUND!");
+                if(array[0].equals(Email)){
+                    if(array[1].equals(pass)){
+
+                        Stage closeScene = (Stage) signIn.getScene().getWindow();
+                        closeScene.close();
+                        PatientHomeController.Email = Email;
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientHomePage.fxml"));
+                        Parent root = loader.load();
+
+                        Stage stage = new Stage();
+                        stage.close();
+                        Scene newScene = new Scene(root);
+                        stage.setScene(newScene);
+                        stage.setTitle("Welcome!");
+                        stage.show();
+
+
+
                         return;
                     }
                 }
@@ -105,10 +162,14 @@ public class patientController {
         catch(FileNotFoundException exception){
             System.out.println("ERROR");
             exception.printStackTrace();
-            //extra line
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+
     }
+
+
+
 
 }

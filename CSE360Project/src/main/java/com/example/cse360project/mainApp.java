@@ -28,7 +28,7 @@ public class mainApp extends Application {
         primaryStage.setScene(new Scene(root, 1280.0,800.0));
         primaryStage.show();
         //adding this comment to update the github and check for VCS compatibility
-        System.out.println("Random testing string; beeboop");
+        //System.out.println("Random testing string; beeboop");
     }
 
 

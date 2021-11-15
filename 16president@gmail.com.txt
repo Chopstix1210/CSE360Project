@@ -1,0 +1,13 @@
+FirstName:abraham
+MiddleName:
+LastName:lincoln
+DOB:02/12/1809
+Phone:1231234567
+Email:16president@gmail.com
+Pharmacy:
+Insurance:
+Health:
+Meds:
+Imm:
+Rec:
+Visits:
