@@ -13,214 +13,195 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-            prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.cse360project.PatientHomeController">
-   <ImageView fitHeight="743.0" fitWidth="1323.0" layoutX="-35.0" layoutY="58.0" pickOnBounds="true"
-              preserveRatio="true">
-      <Image url="@owen-beard-DK8jXx1B-1c-unsplash.jpg"/>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse360project.PatientHomeController">
+   <ImageView fitHeight="743.0" fitWidth="1323.0" layoutX="-35.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@owen-beard-DK8jXx1B-1c-unsplash.jpg" />
    </ImageView>
-   <Rectangle fx:id="topRec" arcHeight="5.0" arcWidth="5.0" fill="#757e86" height="46.0" layoutX="394.0" layoutY="142.0"
-              stroke="BLACK" strokeType="INSIDE" visible="false" width="875.0"/>
-   <Rectangle fx:id="botRec" arcHeight="5.0" arcWidth="5.0" fill="#e4e4e4" height="612.0" layoutX="394.0"
-              layoutY="186.0" opacity="0.66" stroke="#9a9393" strokeType="INSIDE" visible="false" width="875.0"/>
-   <Rectangle fx:id="personalRec" arcHeight="5.0" arcWidth="5.0" fill="#bcc3c9" height="492.0" layoutX="405.0"
-              layoutY="57.0" opacity="0.54" stroke="BLACK" strokeType="INSIDE" visible="false" width="719.0"/>
-   <Rectangle fx:id="VisitRec" arcHeight="5.0" arcWidth="5.0" fill="#8d9194" height="721.0" layoutX="384.0"
-              layoutY="64.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="884.0"/>
+   <Rectangle fx:id="topRec" arcHeight="5.0" arcWidth="5.0" fill="#757e86" height="46.0" layoutX="394.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="875.0" />
+   <Rectangle fx:id="botRec" arcHeight="5.0" arcWidth="5.0" fill="#e4e4e4" height="612.0" layoutX="394.0" layoutY="186.0" opacity="0.66" stroke="#9a9393" strokeType="INSIDE" visible="false" width="875.0" />
+   <Rectangle fx:id="personalRec" arcHeight="5.0" arcWidth="5.0" fill="#bcc3c9" height="492.0" layoutX="405.0" layoutY="57.0" opacity="0.54" stroke="BLACK" strokeType="INSIDE" visible="false" width="719.0" />
+   <Rectangle fx:id="VisitRec" arcHeight="5.0" arcWidth="5.0" fill="#8d9194" height="721.0" layoutX="384.0" layoutY="64.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="884.0" />
    <VBox alignment="TOP_CENTER" layoutX="383.0" layoutY="64.0" prefHeight="708.0" prefWidth="884.0">
-      <Label fx:id="MainVisitsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="86.0" prefWidth="884.0"
-             text="Visits">
+      <Label fx:id="MainVisitsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="86.0" prefWidth="884.0" text="Visits">
          <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
          </font>
       </Label>
       <Label fx:id="VisitsLabelThing" alignment="TOP_LEFT" prefHeight="577.0" prefWidth="967.0">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
       </Label>
    </VBox>
    <VBox fx:id="PersonalVbox" layoutX="422.0" layoutY="58.0" prefHeight="701.0" prefWidth="810.0" visible="false">
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
          <Label prefHeight="46.0" prefWidth="116.0" text="Full Name">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
          <TextField fx:id="PFName" prefHeight="51.0" prefWidth="197.0" text="First Name">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
          <TextField fx:id="PMName" prefHeight="51.0" prefWidth="60.0" text="M">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
          <TextField fx:id="PLName" prefHeight="51.0" prefWidth="198.0" text="Last Name">
             <padding>
-               <Insets left="20.0" right="20.0"/>
+               <Insets left="20.0" right="20.0" />
             </padding>
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
          <Label prefHeight="46.0" prefWidth="116.0" text="Date of Birth">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
          <TextField fx:id="DOBSec" prefHeight="51.0" prefWidth="197.0" text="MM/DD/YYYY">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
          <Label prefHeight="46.0" prefWidth="116.0" text="Contact Information">
             <font>
-               <Font size="13.0"/>
+               <Font size="13.0" />
             </font>
          </Label>
          <TextField fx:id="PhoneSec" prefHeight="51.0" prefWidth="197.0" text="Phone Number">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
          <TextField fx:id="EmailSec" prefHeight="51.0" prefWidth="283.0" text="Email Address">
             <padding>
-               <Insets left="20.0" right="20.0"/>
+               <Insets left="20.0" right="20.0" />
             </padding>
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
          <Label prefHeight="46.0" prefWidth="116.0" text="Pharmacy">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
          <TextField fx:id="PharmSec" prefHeight="51.0" prefWidth="430.0" text="Pharmacy">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
          <Label prefHeight="46.0" prefWidth="116.0" text="Insurance">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
          <TextField fx:id="InsurSec" prefHeight="51.0" prefWidth="430.0" text="Insurance">
             <HBox.margin>
-               <Insets left="10.0" right="10.0"/>
+               <Insets left="10.0" right="10.0" />
             </HBox.margin>
          </TextField>
       </HBox>
-      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="78.0" prefWidth="673.0">
+      <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="673.0">
          <padding>
-            <Insets left="20.0" right="20.0"/>
+            <Insets left="20.0" right="20.0" />
          </padding>
-         <Button fx:id="changeInfoButton" mnemonicParsing="false" onAction="#handleChangeInformation"
-                 prefHeight="42.0" prefWidth="268.0" text="Change Information"/>
+         <Button fx:id="changeInfoButton" mnemonicParsing="false" onAction="#handleChangeInformation" prefHeight="42.0" prefWidth="268.0" text="Change Information" />
       </HBox>
    </VBox>
-   <Label fx:id="mainLabel" alignment="CENTER" layoutX="422.0" layoutY="27.0" prefHeight="31.0" prefWidth="436.0"
-          text="Welcome - Patient Name">
+   <Label fx:id="mainLabel" alignment="CENTER" layoutX="422.0" layoutY="27.0" prefHeight="31.0" prefWidth="436.0" text="Welcome - Patient Name">
       <font>
-         <Font size="21.0"/>
+         <Font size="21.0" />
       </font>
    </Label>
    <VBox fx:id="VisitsToggles" layoutX="395.0" layoutY="69.0" prefHeight="721.0" prefWidth="875.0" visible="false">
       <HBox prefHeight="73.0" prefWidth="875.0">
-         <ToggleButton fx:id="Health" mnemonicParsing="false" onAction="#handleHealthTab" prefHeight="73.0"
-                       prefWidth="279.0" selected="true" text="Health Issues"/>
-         <ToggleButton fx:id="Meds" mnemonicParsing="false" onAction="#handleMedTab" prefHeight="73.0"
-                       prefWidth="279.0" text="Medication"/>
-         <ToggleButton fx:id="Immune" mnemonicParsing="false" onAction="#handleImmTab" prefHeight="73.0"
-                       prefWidth="279.0" text="Immunizations"/>
-         <ToggleButton fx:id="Recommend" mnemonicParsing="false" onAction="#handleRecBox" prefHeight="73.0"
-                       prefWidth="279.0" text="Recommendations"/>
+         <ToggleButton fx:id="Health" mnemonicParsing="false" onAction="#handleHealthTab" prefHeight="73.0" prefWidth="279.0" selected="true" text="Health Issues" />
+         <ToggleButton fx:id="Meds" mnemonicParsing="false" onAction="#handleMedTab" prefHeight="73.0" prefWidth="279.0" text="Medication" />
+         <ToggleButton fx:id="Immune" mnemonicParsing="false" onAction="#handleImmTab" prefHeight="73.0" prefWidth="279.0" text="Immunizations" />
+         <ToggleButton fx:id="Recommend" mnemonicParsing="false" onAction="#handleRecBox" prefHeight="73.0" prefWidth="279.0" text="Recommendations" />
       </HBox>
    </VBox>
    <VBox fx:id="HealthVbox" layoutX="393.0" layoutY="142.0" prefHeight="658.0" prefWidth="875.0" visible="false">
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Health Issues">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="healthLabel" alignment="TOP_LEFT" prefHeight="502.0" prefWidth="978.0">
          <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
          </font>
       </Label>
    </VBox>
    <VBox fx:id="MedVbox" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Medication">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="MedLabel" alignment="TOP_LEFT" prefHeight="502.0" prefWidth="978.0">
          <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
          </font>
       </Label>
    </VBox>
    <VBox fx:id="ImmVbox" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Immunization">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="ImmLabel" alignment="TOP_LEFT" prefHeight="502.0" prefWidth="978.0">
          <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
          </font>
       </Label>
    </VBox>
    <VBox fx:id="RecVbox" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Recommendations">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="RecLabel" alignment="TOP_LEFT" prefHeight="502.0" prefWidth="978.0">
          <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
          </font>
       </Label>
    </VBox>
    <VBox layoutY="58.0" prefHeight="309.0" prefWidth="368.0">
-      <ToggleButton fx:id="PersonalInfoBut" mnemonicParsing="false" onAction="#handlePersonalInfoButton"
-                    prefHeight="85.0" prefWidth="368.0" selected="true" text="Personal Information"/>
-      <ToggleButton fx:id="Visits" mnemonicParsing="false" onAction="#handleVisitButton" prefHeight="85.0"
-                    prefWidth="368.0" text="Visits"/>
-      <ToggleButton fx:id="HistoryButton" mnemonicParsing="false" onAction="#handleHistoryButton" prefHeight="85.0"
-                    prefWidth="368.0" text="Patient's History"/>
-      <ToggleButton fx:id="ChatButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="368.0"
-                    text="Chat With Your Doctor "/>
+      <ToggleButton fx:id="PersonalInfoBut" mnemonicParsing="false" onAction="#handlePersonalInfoButton" prefHeight="85.0" prefWidth="368.0" selected="true" text="Personal Information" />
+      <ToggleButton fx:id="Visits" mnemonicParsing="false" onAction="#handleVisitButton" prefHeight="85.0" prefWidth="368.0" text="Visits" />
+      <ToggleButton fx:id="HistoryButton" mnemonicParsing="false" onAction="#handleHistoryButton" prefHeight="85.0" prefWidth="368.0" text="Patient's History" />
+      <ToggleButton fx:id="ChatButton" mnemonicParsing="false" prefHeight="85.0" prefWidth="368.0" text="Chat With Your Doctor " />
    </VBox>
 </AnchorPane>
