@@ -30,6 +30,27 @@ public class PatientHomeController implements Initializable {
 
     //runs on init of the scene to display the information of the patient
     public void firstRun(){
+
+        PersonalInfoBut.setSelected(true);
+        Visits.setSelected(false);
+        HistoryButton.setSelected(false);
+        ChatButton.setSelected(false);
+
+        PersonalVbox.setVisible(true);
+        VisitsToggles.setVisible(false);
+        HealthVbox.setVisible(false);
+        MedVbox.setVisible(false);
+        ImmVbox.setVisible(false);
+        RecVbox.setVisible(false);
+
+        topRec.setVisible(false);
+        botRec.setVisible(false);
+        personalRec.setVisible(true);
+        VisitRec.setVisible(false);
+
+        VisitsLabelThing.setVisible(false);
+        MainVisitsLabel.setVisible(false);
+
         String fileName = Email + ".txt";
 
         File myFile = new File(fileName);
@@ -193,8 +214,8 @@ public class PatientHomeController implements Initializable {
         ChatButton.setSelected(false);
 
         PersonalVbox.setVisible(false);
-        VisitsToggles.setVisible(true);
-        HealthVbox.setVisible(true);
+        VisitsToggles.setVisible(false);
+        HealthVbox.setVisible(false);
         MedVbox.setVisible(false);
         ImmVbox.setVisible(false);
         RecVbox.setVisible(false);
@@ -230,7 +251,7 @@ public class PatientHomeController implements Initializable {
         searcher.close();
     }
 
-    //handle the visit buttons
+    //handle the history buttons
     public void handleHealthTab(){
         HealthVbox.setVisible(true);
         MedVbox.setVisible(false);
