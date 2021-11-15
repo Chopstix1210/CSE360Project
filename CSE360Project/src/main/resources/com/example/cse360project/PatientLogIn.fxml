@@ -13,134 +13,131 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse360project.patientController">
    <ImageView fitHeight="789.0" fitWidth="1280.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@ss_97129db23116879c7e07329aff3f9146c4ad15b5.1920x1080.jpg" />
-      </image>
+      <Image url="@ss_97129db23116879c7e07329aff3f9146c4ad15b5.1920x1080.jpg"/>
    </ImageView>
-    <Label fx:id="mainLabel" layoutX="573.0" layoutY="14.0" prefHeight="31.0" prefWidth="135.0" text="Patient Login" visible="true">
+    <Label fx:id="mainLabel" layoutX="573.0" layoutY="14.0" prefHeight="31.0" prefWidth="135.0" text="Patient Login">
         <font>
             <Font size="21.0" />
         </font>
     </Label>
-   <VBox fx:id="mainPatient" layoutX="264.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="754.0">
-      <children>
-         <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="755.0" visible="true">
-            <children>
-               <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleNewPatientButtonClick" prefHeight="111.0" prefWidth="252.0" text="New Patient" />
-               <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleReturnPatientButtonClick" prefHeight="111.0" prefWidth="252.0" text="Returning Patient">
-                  <HBox.margin>
-                     <Insets left="100.0" />
-                  </HBox.margin>
-               </Button>
-            </children>
-            <padding>
-               <Insets top="50.0" />
-            </padding>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="47.0" prefWidth="571.0">
-            <children>
-               <Button fx:id="backToCover" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleBackButtonToCover" prefHeight="25.0" prefWidth="153.0" text="Back" />
-            </children>
-         </HBox>
-      </children>
+   <VBox fx:id="mainPatient" layoutX="264.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity"
+         minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="754.0">
+      <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="279.0" prefWidth="755.0">
+         <padding>
+            <Insets top="50.0"/>
+         </padding>
+         <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleNewPatientButtonClick"
+                 prefHeight="111.0" prefWidth="252.0" text="New Patient"/>
+         <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleReturnPatientButtonClick"
+                 prefHeight="111.0" prefWidth="252.0" text="Returning Patient">
+            <HBox.margin>
+               <Insets left="100.0"/>
+            </HBox.margin>
+         </Button>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="47.0" prefWidth="571.0">
+         <Button fx:id="backToCover" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity"
+                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                 onAction="#handleBackButtonToCover" prefHeight="25.0" prefWidth="153.0" text="Back"/>
+      </HBox>
    </VBox>
    <VBox fx:id="newPatient" layoutX="131.0" layoutY="148.0" prefHeight="324.0" prefWidth="348.0" visible="false">
-      <children>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="First Name" />
-               <TextField fx:id="fName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Last Name" />
-               <TextField fx:id="lName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Birthday" />
-               <TextField fx:id="birthday" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Email" />
-               <TextField fx:id="email" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Phone Number" />
-               <TextField fx:id="phoneNumber" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Password" />
-               <TextField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </HBox>
-         <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="345.0">
-            <children>
-               <Button fx:id="FromNewToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient" prefHeight="46.0" prefWidth="135.0" text="Back">
-                  <HBox.margin>
-                     <Insets right="20.0" />
-                  </HBox.margin></Button>
-               <Button fx:id="saveInfo" mnemonicParsing="false" onAction="#handleSaveInfo" prefHeight="46.0" prefWidth="135.0" text="Save Info" />
-            </children>
-         </HBox>
-      </children>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="First Name"/>
+         <TextField fx:id="fName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Last Name"/>
+         <TextField fx:id="lName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Birthday"/>
+         <TextField fx:id="birthday" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Email"/>
+         <TextField fx:id="email" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Phone Number"/>
+         <TextField fx:id="phoneNumber" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Password"/>
+         <TextField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="53.0" prefWidth="345.0">
+         <Button fx:id="FromNewToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient"
+                 prefHeight="46.0" prefWidth="135.0" text="Back">
+            <HBox.margin>
+               <Insets right="20.0"/>
+            </HBox.margin>
+         </Button>
+         <Button fx:id="saveInfo" mnemonicParsing="false" onAction="#handleSaveInfo" prefHeight="46.0"
+                 prefWidth="135.0" text="Save Info"/>
+      </HBox>
    </VBox>
    <VBox fx:id="returnPatient" layoutX="131.0" layoutY="200.0" prefHeight="129.0" prefWidth="348.0" visible="false">
-      <children>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Email" />
-               <TextField fx:id="logEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Email"/>
+         <TextField fx:id="logEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="448.0">
+         <padding>
+            <Insets bottom="10.0"/>
+         </padding>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Password"/>
+         <TextField fx:id="logPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0"/>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="53.0" prefWidth="345.0" spacing="20.0">
+         <Button fx:id="FromReturnToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient"
+                 prefHeight="46.0" prefWidth="135.0" text="Back">
             <padding>
-               <Insets bottom="10.0" />
+               <Insets right="10.0"/>
             </padding>
-         </HBox>
-         <HBox prefHeight="30.0" prefWidth="448.0">
-            <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="85.0" text="Password" />
-               <TextField fx:id="logPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="229.0" />
-            </children>
+         </Button>
+         <Button fx:id="signIn" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="135.0"
+                 text="Log In">
+            <HBox.margin>
+               <Insets right="20.0"/>
+            </HBox.margin>
             <padding>
-               <Insets bottom="10.0" />
+               <Insets left="10.0"/>
             </padding>
-         </HBox>
-         <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="345.0">
-            <children>
-               <Button fx:id="FromReturnToMain" mnemonicParsing="false" onAction="#handleBackButtonToMainPatient" prefHeight="46.0" prefWidth="135.0" text="Back" />
-               <Button fx:id="signIn" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="135.0" text="Log In">
-                  <HBox.margin>
-                     <Insets right="20.0" />
-                  </HBox.margin></Button>
-            </children>
-         </HBox>
-      </children>
+         </Button>
+      </HBox>
    </VBox>
 
 
