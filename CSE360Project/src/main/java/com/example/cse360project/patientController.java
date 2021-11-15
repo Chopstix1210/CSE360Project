@@ -105,6 +105,8 @@ public class patientController {
         catch(FileNotFoundException exception){
             System.out.println("ERROR");
             exception.printStackTrace();
+            //extra line
+
         }
 
     }
