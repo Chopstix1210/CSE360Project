@@ -78,7 +78,7 @@ public class patientController extends PatientHomeController{
             String pass = password.getText();
             FileWriter myFile = new FileWriter("PatientInformation.txt", true);
             BufferedWriter patientFile = new BufferedWriter(myFile);
-            patientFile.write(pEmail + "," + pass + "\n");
+            patientFile.write(pEmail + "," + pass + "," + lastName + "," + bDay + "\n");
             patientFile.close();
             myFile.close();
 
