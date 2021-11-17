@@ -1,5 +1,6 @@
 package com.example.cse360project;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -182,6 +183,8 @@ public class PatientHomeController implements Initializable {
 
         VisitsLabelThing.setVisible(false);
         MainVisitsLabel.setVisible(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleHistoryButton(){
         PersonalInfoBut.setSelected(false);
@@ -210,7 +213,7 @@ public class PatientHomeController implements Initializable {
         Immune.setSelected(false);
         Recommend.setSelected(false);
 
-
+        ChatVbox.setVisible(false);
     }
     public void handleVisitButton() throws FileNotFoundException {
         PersonalInfoBut.setSelected(false);
@@ -238,6 +241,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
 
         String fileName = Email + ".txt";
 
@@ -267,6 +272,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleMedTab(){
         HealthVbox.setVisible(false);
@@ -278,6 +285,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(true);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleImmTab(){
         HealthVbox.setVisible(false);
@@ -289,6 +298,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(true);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleRecBox(){
         HealthVbox.setVisible(false);
@@ -300,6 +311,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(true);
+
+        ChatVbox.setVisible(false);
     }
     public void handleChatButton(){
         PersonalInfoBut.setSelected(false);
@@ -357,7 +370,45 @@ public class PatientHomeController implements Initializable {
         }
     }
 
+    public void handleSendMessage(ActionEvent event) throws IOException {
+        String fileName = Email + ".txt";
+        try {
+            String message = ChatTextField.getText();
+            FileWriter myFile = new FileWriter(fileName , true);
+            BufferedWriter messageFile = new BufferedWriter(myFile);
+            messageFile.write("Patient:" + message + "\n");
+            messageFile.close();
+            myFile.close();
+        }
+        catch(IOException exception) {
+            System.out.println("ERROR");
+            exception.printStackTrace();
+        }
+        boolean chatEnable = false;
 
+        try {
+            File myFile = new File(fileName);
+            Scanner searcher = new Scanner(myFile);
+            String[] chatArray = new String[1];
+            StringBuilder disp = new StringBuilder();
+            while (searcher.hasNextLine()) {
+                String[] array = searcher.nextLine().split(":");
+                if (array[0].equals("===============================")) {
+                    chatEnable = true;
+                }
+                else if(chatEnable){
+                    for(String s : array){
+                        disp.append(s).append("\n");
+                    }
+                }
+            }
+            searcher.close();
+            ChatBoard.setText(String.valueOf(disp));
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
 
 
     @Override

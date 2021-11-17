@@ -40,9 +40,9 @@ public class chatboxController<newScene> {
     public void handleSendMessage(ActionEvent event) throws IOException {
         try {
             String message = textField.getText();
-            FileWriter myFile = new FileWriter("MessageHistory.txt", true);
+            FileWriter myFile = new FileWriter("MessageHistory.txt" , true);
             BufferedWriter messageFile = new BufferedWriter(myFile);
-            messageFile.write(message + "\n");
+            messageFile.write("Patient:" + message + "\n");
             messageFile.close();
             myFile.close();
         }
