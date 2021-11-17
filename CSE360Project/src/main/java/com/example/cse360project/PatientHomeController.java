@@ -54,6 +54,7 @@ public class PatientHomeController implements Initializable {
 
         VisitsLabelThing.setVisible(false);
         MainVisitsLabel.setVisible(false);
+        ChatVbox.setVisible(false);
 
         String fileName = Email + ".txt";
 
