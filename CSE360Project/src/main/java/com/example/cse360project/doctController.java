@@ -41,7 +41,7 @@ public class doctController {
         String docName = docFullName.getText().toLowerCase();
         String docPass = docPassword.getText().toLowerCase();
         String docPin = docPinNum.getText();
-        //System.out.println("yesh yesh yesh");
+        //System.out.println("yes yes yes");
 
         try{
             File myFile = new File("doctorInformation");
@@ -51,7 +51,19 @@ public class doctController {
                 if(array[0].equals(docName)){
                     if(array[1].equals(docPass)){
                         if(array[2].equals(docPin)){
-                            System.out.println("USER FOUND!");
+
+                            Stage closeScene = (Stage) docBack.getScene().getWindow();
+                            closeScene.close();
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientRecordViewForDoctor.fxml"));
+                            Parent root = loader.load();
+
+                            Stage stage = new Stage();
+                            stage.close();
+                            Scene newScene = new Scene(root);
+                            stage.setScene(newScene);
+                            stage.setTitle("Welcome Doctor!");
+                            stage.show();
+
                             return;
                         }
                     }
@@ -63,6 +75,8 @@ public class doctController {
         catch(FileNotFoundException exception){
             System.out.println("ERROR");
             exception.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
