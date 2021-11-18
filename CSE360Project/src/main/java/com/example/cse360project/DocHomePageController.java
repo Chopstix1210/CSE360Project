@@ -21,13 +21,15 @@ public class DocHomePageController implements Initializable {
 
 
     public VBox docVisitTab, HealthVboxDoc, MedVboxDoc, PrescVboxDoc, VisitsTogglesDoc, PersonalVboxDoc
-            , ChatVboxDoc, ImmVboxDoc;
+            , ChatVboxDoc, ImmVboxDoc, docVitalsTab;
     public ToggleButton PersonalInfoButDoc, VitalsDoc, HistoryButtonDoc, VisitsDocButt, PhysicalDoc, PrescriptionDoc,
             ChatButtonDoc, HealthDoc, MedsDoc, ImmuneDoc, RecommendDoc;
     public TextField PFNameDoc, PLNameDoc, PMNameDoc, DOBSecDoc, PhoneSecDoc, EmailSecDoc, PharmSecDoc, InsurSecDoc,
-            ChatTextFieldDoc, MedsIn, healthSave, medSave, ImmSave;
+            ChatTextFieldDoc, MedsIn, healthSave, medSave, ImmSave, VisitTextFieldDoc, PAgeDoc, PWeightDoc,
+            PHeightDoc, PTempDoc, PBPDoc;
     public TextArea ChatBoardDoc;
-    public Label mainLabelDoc, healthLabelDoc, MedLabelDoc, ImmLabelDoc, PrescLabelDoc, VisitsLabelThingDoc;
+    public Label mainLabelDoc, healthLabelDoc, MedLabelDoc, ImmLabelDoc, PrescLabelDoc, VisitsLabelThingDoc, VisitDoc;
+    public Button VitSaveDoc;
 
     public static String Email;
     public String First, Middle, Last, DOB, Phone, Pharm, Insur, sHealth, sMeds, sImm, sRec, sVisits;
@@ -36,6 +38,7 @@ public class DocHomePageController implements Initializable {
 
     public void docRun(){
         docVisitTab.setVisible(false);
+        docVitalsTab.setVisible(false);
         HealthVboxDoc.setVisible(false);
         MedVboxDoc.setVisible(false);
         PrescVboxDoc.setVisible(false);
@@ -119,7 +122,7 @@ public class DocHomePageController implements Initializable {
                         for (String s : temp) {
                             disp.append(s).append("\n");
                         }
-                        VisitsLabelThingDoc.setText(String.valueOf(disp));
+                        VisitDoc.setText(String.valueOf(disp));
                     }
                 }
             }
@@ -176,6 +179,7 @@ public class DocHomePageController implements Initializable {
     public void handlePatientHistory(){
         docVisitTab.setVisible(false);
         HealthVboxDoc.setVisible(true);
+        docVitalsTab.setVisible(false);
         MedVboxDoc.setVisible(false);
         PrescVboxDoc.setVisible(false);
         VisitsTogglesDoc.setVisible(true);
@@ -422,6 +426,7 @@ public class DocHomePageController implements Initializable {
 
     public void handlePrescriptionButton(){
         docVisitTab.setVisible(false);
+        docVitalsTab.setVisible(false);
         HealthVboxDoc.setVisible(false);
         MedVboxDoc.setVisible(false);
         PrescVboxDoc.setVisible(true);
@@ -501,6 +506,108 @@ public class DocHomePageController implements Initializable {
         patientFile.close();
         myFile.close();
     }
+
+    public void updateVisits() throws IOException {
+
+        String addVisits = VisitTextFieldDoc.getText();
+        String all;
+        if(VisitDoc.getText().equals(".")){
+            all = addVisits;
+        }
+        else{
+            all = VisitDoc.getText() + "\n" + addVisits;
+        }
+
+        VisitDoc.setText(all);
+
+        String open = Email + ".txt";
+
+        FileWriter myFile = new FileWriter(open);
+        BufferedWriter patientFile = new BufferedWriter(myFile);
+
+        String fileName = Email + ".txt";
+        boolean chatEnable = false;
+
+        StringBuilder disp = new StringBuilder();
+        try {
+            File readFile = new File(fileName);
+            Scanner searcher = new Scanner(readFile);
+            while (searcher.hasNextLine()) {
+                String array = searcher.nextLine();
+                if (array.equals("===============================")) {
+                    chatEnable = true;
+                }
+                else if(chatEnable){
+                    disp.append(array).append("\n");
+                }
+            }
+            searcher.close();
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        String[] temp = all.split("\n");
+        StringBuilder other = new StringBuilder();
+        for(String s: temp){
+            other.append(s).append(":");
+        }
+        sVisits=String.valueOf(other);
+
+        patientFile.write(
+                "FirstName:" + First + "\n" +
+                        "MiddleName:" + Middle + "\n" +
+                        "LastName:" + Last + "\n" +
+                        "DOB:" + DOB + "\n" +
+                        "Phone:" + Phone + "\n" +
+                        "Email:" + Email + "\n" +
+                        "Pharmacy:" + Pharm + "\n" +
+                        "Insurance:" + Insur + "\n" +
+                        "Health:" + sHealth + "\n" + "Meds:" + sMeds + "\n"+
+                        "Imm:" + sImm + "\n" + "Rec:" + sRec + "\n" +
+                        "Visits:" + sVisits + "\n"
+                        + "===============================" + "\n"
+                        + String.valueOf(disp));
+        patientFile.close();
+        myFile.close();
+    }
+
+    public void handlePatientVitals(){
+        docVisitTab.setVisible(false);
+        HealthVboxDoc.setVisible(false);
+        docVitalsTab.setVisible(true);
+        MedVboxDoc.setVisible(false);
+        PrescVboxDoc.setVisible(false);
+        VisitsTogglesDoc.setVisible(false);
+        docVisitTab.setVisible(false);
+        PersonalVboxDoc.setVisible(false);
+
+        PersonalInfoButDoc.setSelected(false);
+        VitalsDoc.setSelected(true);
+        HistoryButtonDoc.setSelected(false);
+        VisitsDocButt.setSelected(false);
+        PhysicalDoc.setSelected(false);
+        PrescriptionDoc.setSelected(false);
+        ChatButtonDoc.setSelected(false);
+
+        ChatVboxDoc.setVisible(false);
+
+    }
+
+    public void savePatVitals(){
+        String Age = PAgeDoc.getText();
+        String Weight = PWeightDoc.getText();
+        String Height = PHeightDoc.getText();
+        String Temperature = PTempDoc.getText();
+        String BloodPressure = PBPDoc.getText();
+
+        PAgeDoc.setText(Age);
+        PWeightDoc.setText(Weight);
+        PHeightDoc.setText(Height);
+        PTempDoc.setText(Temperature);
+        PBPDoc.setText(BloodPressure);
+
+    }
+
 
 
     public void sendMedstoPharm(){

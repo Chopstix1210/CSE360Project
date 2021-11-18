@@ -23,19 +23,35 @@
       <Rectangle fx:id="botRecFirst" arcHeight="5.0" arcWidth="5.0" fill="#e4e4e4" height="612.0" layoutX="394.0" layoutY="186.0" opacity="0.66" stroke="#9a9393" strokeType="INSIDE" visible="false" width="875.0" />
       <Rectangle fx:id="personalRecFirst" arcHeight="5.0" arcWidth="5.0" fill="#bcc3c9" height="492.0" layoutX="405.0" layoutY="57.0" opacity="0.54" stroke="BLACK" strokeType="INSIDE" visible="false" width="719.0" />
       <Rectangle fx:id="VisitRecFirst" arcHeight="5.0" arcWidth="5.0" fill="#8d9194" height="721.0" layoutX="384.0" layoutY="64.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="884.0" />
-      <VBox fx:id="docVisitTab" alignment="TOP_CENTER" layoutX="383.0" layoutY="64.0" prefHeight="708.0" prefWidth="884.0">
-         <Label fx:id="MainVisitsLabelDoc" alignment="CENTER" contentDisplay="CENTER" prefHeight="86.0" prefWidth="884.0" text="Visits">
-            <font>
-               <Font size="24.0" />
-            </font>
-         </Label>
-         <Label fx:id="VisitsLabelThingDoc" alignment="TOP_LEFT" prefHeight="577.0" prefWidth="967.0">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
+      <VBox fx:id="docVitalsTab" layoutX="384.0" layoutY="78.0" prefHeight="708.0" prefWidth="884.0">
+         <Label prefHeight="24.0" prefWidth="28.0" text="Age:"/>
+         <TextField fx:id="PAgeDoc"/>
+         <Label text="Weight:"/>
+         <TextField fx:id="PWeightDoc"/>
+         <Label text="Height:"/>
+         <TextField fx:id="PHeightDoc"/>
+         <Label text="Temperature"/>
+         <TextField fx:id="PTempDoc"/>
+         <Label text="Blood Pressure:"/>
+         <TextField fx:id="PBPDoc"/>
+         <Button fx:id="VitSaveDoc" mnemonicParsing="false" onAction="#savePatVitals" prefHeight="25.0" prefWidth="70.0"
+                 text="Save"/>
       </VBox>
-      <VBox fx:id="PersonalVboxDoc" layoutX="422.0" layoutY="58.0" prefHeight="701.0" prefWidth="810.0" visible="false">
+      <VBox fx:id="docVisitTab" alignment="TOP_CENTER" layoutX="383.0" layoutY="64.0" prefHeight="708.0" prefWidth="884.0">
+         <VBox alignment="TOP_CENTER" prefHeight="708.0" prefWidth="845.0">
+            <Label fx:id="MainVisitsLabelDoc" alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0"
+                   prefWidth="884.0" text="Visits">
+               <font>
+                  <Font size="24.0"/>
+               </font>
+            </Label>
+            <Label fx:id="VisitDoc" prefHeight="553.0" prefWidth="777.0"/>
+         </VBox>
+         <HBox alignment="CENTER" prefHeight="167.0" prefWidth="884.0">
+            <TextField fx:id="VisitTextFieldDoc" prefHeight="13.0" prefWidth="581.0"/>
+            <Button mnemonicParsing="false" onAction="#updateVisits" text="Send Visit"/>
+         </HBox>
+      </VBox>      <VBox fx:id="PersonalVboxDoc" layoutX="422.0" layoutY="58.0" prefHeight="701.0" prefWidth="810.0" visible="false">
          <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="810.0">
             <padding>
                <Insets left="20.0" right="20.0" />
@@ -141,10 +157,10 @@
       </VBox>
       <VBox fx:id="VisitsTogglesDoc" layoutX="395.0" layoutY="69.0" prefHeight="721.0" prefWidth="875.0" visible="false">
          <HBox prefHeight="73.0" prefWidth="875.0">
-            <ToggleButton fx:id="HealthDoc" mnemonicParsing="false" prefHeight="73.0" prefWidth="279.0" selected="true" text="Health Issues" />
-            <ToggleButton fx:id="MedsDoc" mnemonicParsing="false" prefHeight="73.0" prefWidth="279.0" text="Medication" />
-            <ToggleButton fx:id="ImmuneDoc" mnemonicParsing="false" prefHeight="73.0" prefWidth="279.0" text="Immunizations" />
-            <ToggleButton fx:id="RecommendDoc" mnemonicParsing="false" prefHeight="73.0" prefWidth="279.0" text="Recommendations" />
+            <ToggleButton fx:id="HealthDoc" mnemonicParsing="false" onAction="#handlePatientHistoryHealth" prefHeight="73.0" prefWidth="279.0" selected="true" text="Health Issues" />
+            <ToggleButton fx:id="MedsDoc" mnemonicParsing="false" onAction="#handlePatientHistoryMeds" prefHeight="73.0" prefWidth="279.0" text="Medication" />
+            <ToggleButton fx:id="ImmuneDoc" mnemonicParsing="false" onAction="#handlePatientHistoryImm" prefHeight="73.0" prefWidth="279.0" text="Immunizations" />
+            <ToggleButton fx:id="RecommendDoc" mnemonicParsing="false" onAction="#handlePatientHistoryRec" prefHeight="73.0" prefWidth="279.0" text="Recommendations" />
          </HBox>
       </VBox>
       <VBox fx:id="HealthVboxDoc" layoutX="393.0" layoutY="142.0" prefHeight="658.0" prefWidth="875.0" visible="false">
@@ -158,6 +174,10 @@
                <Font size="16.0" />
             </font>
          </Label>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <TextField fx:id="healthSave" prefHeight="38.0" prefWidth="546.0"/>
+            <Button mnemonicParsing="false" onAction="#updatePatientHistoryHealth" text="Save"/>
+         </HBox>
       </VBox>
       <VBox fx:id="MedVboxDoc" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Medication">
@@ -170,6 +190,10 @@
                <Font size="16.0" />
             </font>
          </Label>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <TextField fx:id="medSave" prefHeight="38.0" prefWidth="546.0"/>
+            <Button mnemonicParsing="false" onAction="#updatePatientHistoryMeds" text="Save"/>
+         </HBox>
       </VBox>
       <VBox fx:id="ImmVboxDoc" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Immunization">
@@ -182,8 +206,12 @@
                <Font size="16.0" />
             </font>
          </Label>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <TextField fx:id="ImmSave" prefHeight="38.0" prefWidth="546.0"/>
+            <Button mnemonicParsing="false" onAction="#updatePatientHistoryImm" text="Save"/>
+         </HBox>
       </VBox>
-      <VBox fx:id="PrescVboxDoc" layoutX="394.0" layoutY="143.0" prefHeight="667.0" prefWidth="884.0" visible="false">
+      <VBox fx:id="PrescVboxDoc" alignment="CENTER_RIGHT" layoutX="394.0" layoutY="75.0" prefHeight="708.0" prefWidth="875.0" visible="false">
          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="875.0" text="Prescriptions">
             <font>
                <Font size="18.0" />
@@ -194,26 +222,28 @@
                <Font size="16.0" />
             </font>
          </Label>
-         <TextField />
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <TextField fx:id="MedsIn" prefHeight="25.0" prefWidth="547.0" promptText="Edit Prescription" />
+            <Button mnemonicParsing="false" onAction="#updatePrescriptions" text="Save Medication" />
+         </HBox>
+         <Button mnemonicParsing="false" onAction="#sendMedstoPharm" prefHeight="76.0" prefWidth="367.0" text="Send To Pharmacy" />
       </VBox>
       <VBox layoutY="58.0" prefHeight="455.0" prefWidth="368.0">
          <ToggleButton fx:id="PersonalInfoButDoc" mnemonicParsing="false" onAction="#handlePatientPersonalInformation" prefHeight="85.0" prefWidth="368.0" selected="true" text="Personal Information" />
-         <ToggleButton fx:id="VitalsDoc" mnemonicParsing="false" prefHeight="85.0" prefWidth="368.0" text="Vitals" />
+         <ToggleButton fx:id="VitalsDoc" mnemonicParsing="false" onAction="#handlePatientVitals" prefHeight="85.0" prefWidth="368.0" text="Vitals" />
          <ToggleButton fx:id="HistoryButtonDoc" mnemonicParsing="false" onAction="#handlePatientHistory" prefHeight="85.0" prefWidth="368.0" text="Patient's History" />
          <ToggleButton fx:id="VisitsDocButt" mnemonicParsing="false" onAction="#handlePatientVisits" prefHeight="85.0" prefWidth="368.0" text="Visit" />
          <ToggleButton fx:id="PhysicalDoc" mnemonicParsing="false" prefHeight="85.0" prefWidth="368.0" text="Physical" />
-         <ToggleButton fx:id="PrescriptionDoc" mnemonicParsing="false" prefHeight="82.0" prefWidth="368.0" text="Prescription" />
+         <ToggleButton fx:id="PrescriptionDoc" mnemonicParsing="false" onAction="#handlePrescriptionButton" prefHeight="82.0" prefWidth="368.0" text="Prescription" />
          <ToggleButton fx:id="ChatButtonDoc" mnemonicParsing="false" onAction="#SendMessageDoc" prefHeight="85.0" prefWidth="368.0" text="Chat with your Doctor" />
       </VBox>
-      <VBox fx:id="ChatVboxDoc" alignment="BOTTOM_CENTER" layoutX="385.0" layoutY="64.0" prefHeight="721.0"
-            prefWidth="884.0">
-         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0"
-               prefWidth="741.0">
-            <TextArea fx:id="ChatBoardDoc" prefHeight="571.0" prefWidth="741.0"/>
+      <VBox fx:id="ChatVboxDoc" alignment="BOTTOM_CENTER" layoutX="385.0" layoutY="64.0" prefHeight="721.0" prefWidth="884.0">
+         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="741.0">
+            <TextArea fx:id="ChatBoardDoc" prefHeight="571.0" prefWidth="741.0" />
          </VBox>
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <TextField fx:id="ChatTextFieldDoc" prefHeight="25.0" prefWidth="542.0" promptText="Chat Here"/>
-            <Button mnemonicParsing="false" onAction="#handleSendMessage" text="Send"/>
+            <TextField fx:id="ChatTextFieldDoc" prefHeight="25.0" prefWidth="542.0" promptText="Chat Here" />
+            <Button mnemonicParsing="false" onAction="#handleSendMessage" text="Send" />
          </HBox>
       </VBox>
    </AnchorPane>

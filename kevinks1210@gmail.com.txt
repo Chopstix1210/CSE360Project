@@ -7,12 +7,10 @@ Email:kevinks1210@gmail.com
 Pharmacy:Walgreens
 Insurance:help
 Health:Healthy person. There are no known conditions.
-Meds:No Medication.
+Meds:Nyquil
 Imm:Is up-to-date on Immunizations shots.
 Rec:Get more sleep and drink more water.
-Visits:01/01/2021 - always tired and sleepy:01/02/2021 - keeps falling asleep
+Visits:01/01/2021 - always tired and sleepy::01/02/2021 - more things:
 ===============================
-Patient:Hello
-Patient:adaskhfbgas
-Patient: i hat youe
-Patient: fat amog gus
+Doctor: safsadfasfsa
+Patient: asjflaskj
