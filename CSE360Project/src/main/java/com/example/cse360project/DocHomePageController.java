@@ -16,11 +16,12 @@ import java.util.Scanner;
 public class DocHomePageController implements Initializable {
 
 
-    public VBox docVisitTab, HealthVboxDoc, MedVboxDoc, PrescVboxDoc, VisitsTogglesDoc, PersonalVboxDoc, ChatVboxDoc;
+    public VBox docVisitTab, docVitalsTab, HealthVboxDoc, MedVboxDoc, PrescVboxDoc, VisitsTogglesDoc, PersonalVboxDoc, ChatVboxDoc;
     public ToggleButton PersonalInfoButDoc, VitalsDoc, HistoryButtonDoc, VisitsDocButt, PhysicalDoc, PrescriptionDoc,
             ChatButtonDoc;
+    public Button VitSaveDoc;
     public TextField PFNameDoc, PLNameDoc, PMNameDoc, DOBSecDoc, PhoneSecDoc, EmailSecDoc, PharmSecDoc, InsurSecDoc,
-            ChatTextFieldDoc;
+            ChatTextFieldDoc, PAgeDoc, PWeightDoc, PHeightDoc, PTempDoc, PBPDoc;
     public TextArea ChatBoardDoc;
     public Label mainLabelDoc, healthLabelDoc, MedLabelDoc, ImmLabelDoc, PrescLabelDoc;
 
@@ -37,6 +38,7 @@ public class DocHomePageController implements Initializable {
         docVisitTab.setVisible(false);
         VisitsTogglesDoc.setVisible(false);
         PersonalVboxDoc.setVisible(true);
+        docVitalsTab.setVisible(false);
 
         PersonalInfoButDoc.setSelected(true);
         VitalsDoc.setSelected(false);
@@ -113,6 +115,7 @@ public class DocHomePageController implements Initializable {
 
     }
 
+
     public void handlePatientPersonalInformation(){
         docVisitTab.setVisible(false);
         HealthVboxDoc.setVisible(false);
@@ -121,6 +124,7 @@ public class DocHomePageController implements Initializable {
         VisitsTogglesDoc.setVisible(false);
         docVisitTab.setVisible(false);
         PersonalVboxDoc.setVisible(true);
+        docVitalsTab.setVisible(false);
 
         PersonalInfoButDoc.setSelected(true);
         VitalsDoc.setSelected(false);
@@ -141,6 +145,7 @@ public class DocHomePageController implements Initializable {
         VisitsTogglesDoc.setVisible(false);
         docVisitTab.setVisible(true);
         PersonalVboxDoc.setVisible(false);
+        docVitalsTab.setVisible(false);
 
         PersonalInfoButDoc.setSelected(false);
         VitalsDoc.setSelected(false);
@@ -161,6 +166,7 @@ public class DocHomePageController implements Initializable {
         VisitsTogglesDoc.setVisible(true);
         docVisitTab.setVisible(false);
         PersonalVboxDoc.setVisible(false);
+        docVitalsTab.setVisible(false);
 
         PersonalInfoButDoc.setSelected(false);
         VitalsDoc.setSelected(false);
@@ -171,6 +177,43 @@ public class DocHomePageController implements Initializable {
         ChatButtonDoc.setSelected(false);
 
         ChatVboxDoc.setVisible(false);
+    }
+
+    public void handlePatientVitals(){
+        docVisitTab.setVisible(false);
+        HealthVboxDoc.setVisible(false);
+        docVitalsTab.setVisible(true);
+        MedVboxDoc.setVisible(false);
+        PrescVboxDoc.setVisible(false);
+        VisitsTogglesDoc.setVisible(false);
+        docVisitTab.setVisible(false);
+        PersonalVboxDoc.setVisible(false);
+
+        PersonalInfoButDoc.setSelected(false);
+        VitalsDoc.setSelected(true);
+        HistoryButtonDoc.setSelected(false);
+        VisitsDocButt.setSelected(false);
+        PhysicalDoc.setSelected(false);
+        PrescriptionDoc.setSelected(false);
+        ChatButtonDoc.setSelected(false);
+
+        ChatVboxDoc.setVisible(false);
+
+    }
+
+    public void savePatVitals(){
+        String Age = PAgeDoc.getText();
+        String Weight = PWeightDoc.getText();
+        String Height = PHeightDoc.getText();
+        String Temperature = PTempDoc.getText();
+        String BloodPressure = PBPDoc.getText();
+
+        PAgeDoc.setText(Age);
+        PWeightDoc.setText(Weight);
+        PHeightDoc.setText(Height);
+        PTempDoc.setText(Temperature);
+        PBPDoc.setText(BloodPressure);
+
     }
 
 
