@@ -376,7 +376,7 @@ public class PatientHomeController implements Initializable {
             String message = ChatTextField.getText();
             FileWriter myFile = new FileWriter(fileName , true);
             BufferedWriter messageFile = new BufferedWriter(myFile);
-            messageFile.write("Patient:" + message + "\n");
+            messageFile.write("Patient: " + message + "\n");
             messageFile.close();
             myFile.close();
         }
@@ -392,14 +392,12 @@ public class PatientHomeController implements Initializable {
             String[] chatArray = new String[1];
             StringBuilder disp = new StringBuilder();
             while (searcher.hasNextLine()) {
-                String[] array = searcher.nextLine().split(":");
-                if (array[0].equals("===============================")) {
+                String array = searcher.nextLine();
+                if (array.equals("===============================")) {
                     chatEnable = true;
                 }
                 else if(chatEnable){
-                    for(String s : array){
-                        disp.append(s).append("\n");
-                    }
+                        disp.append(array).append("\n");
                 }
             }
             searcher.close();
