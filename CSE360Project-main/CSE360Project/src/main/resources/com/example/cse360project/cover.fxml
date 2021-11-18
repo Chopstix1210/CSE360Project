@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse360project.coverController">
+   <children>
+      <ImageView fitHeight="775.0" fitWidth="1280.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@new-building_1920x1080.jpg" />
+         </image></ImageView>
+      <Label fx:id="mainLabel" layoutX="573.0" layoutY="14.0" prefHeight="31.0" prefWidth="135.0" text="Medical Portal" visible="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="patLabel" layoutX="528.0" layoutY="14.0" prefHeight="31.0" prefWidth="226.0" text="Medical Portal: Patient" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="docLabel" layoutX="527.0" layoutY="14.0" prefHeight="31.0" prefWidth="226.0" text="Medical Portal: Doctor" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="patientButton" layoutX="364.0" layoutY="319.0" mnemonicParsing="false" onAction="#handlePatientButtonClick" prefHeight="81.0" prefWidth="209.0" text="Patient Portal" />
+      <Button fx:id="doctorButton" layoutX="708.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleDoctorButtonClick" prefHeight="81.0" prefWidth="209.0" text="Doctor/Nurse Portal" />
+   </children>
+</AnchorPane>
