@@ -1,12 +1,15 @@
 package com.example.cse360project;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.net.URL;
@@ -17,16 +20,18 @@ import java.util.Scanner;
 
 public class PatientHomeController implements Initializable {
 
-    public Button changeInfoButton;
+    public Button changeInfoButton, SendChatButton;
     public ToggleButton Visits, PersonalInfoBut, HistoryButton, ChatButton;
     public ToggleButton Health, Meds, Immune, Recommend;
-    public TextField PFName, PMName, PLName,DOBSec, PhoneSec, EmailSec,PharmSec, InsurSec;
+    public TextField PFName, PMName, PLName,DOBSec, PhoneSec, EmailSec,PharmSec, InsurSec, ChatTextField;
     public String First, Middle, Last, DOB, Phone, Pharm, Insur, sHealth, sMeds, sImm, sRec;
     public static String Email;
     public Label mainLabel, healthLabel, MedLabel, ImmLabel, RecLabel, MainVisitsLabel, VisitsLabelThing;
     public patientController patientController;
-    public VBox PersonalVbox, VisitsToggles, HealthVbox, MedVbox, ImmVbox, RecVbox;
+    public VBox PersonalVbox, VisitsToggles, HealthVbox, MedVbox, ImmVbox, RecVbox, ChatVbox, MessageVbox;
     public Rectangle topRec, botRec, personalRec, VisitRec;
+    public HBox ChatHbox;
+    public TextArea ChatBoard;
 
     //runs on init of the scene to display the information of the patient
     public void firstRun(){
@@ -50,6 +55,7 @@ public class PatientHomeController implements Initializable {
 
         VisitsLabelThing.setVisible(false);
         MainVisitsLabel.setVisible(false);
+        ChatVbox.setVisible(false);
 
         String fileName = Email + ".txt";
 
@@ -177,6 +183,8 @@ public class PatientHomeController implements Initializable {
 
         VisitsLabelThing.setVisible(false);
         MainVisitsLabel.setVisible(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleHistoryButton(){
         PersonalInfoBut.setSelected(false);
@@ -205,7 +213,7 @@ public class PatientHomeController implements Initializable {
         Immune.setSelected(false);
         Recommend.setSelected(false);
 
-
+        ChatVbox.setVisible(false);
     }
     public void handleVisitButton() throws FileNotFoundException {
         PersonalInfoBut.setSelected(false);
@@ -233,6 +241,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
 
         String fileName = Email + ".txt";
 
@@ -262,6 +272,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleMedTab(){
         HealthVbox.setVisible(false);
@@ -273,6 +285,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(true);
         Immune.setSelected(false);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleImmTab(){
         HealthVbox.setVisible(false);
@@ -284,6 +298,8 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(true);
         Recommend.setSelected(false);
+
+        ChatVbox.setVisible(false);
     }
     public void handleRecBox(){
         HealthVbox.setVisible(false);
@@ -295,10 +311,104 @@ public class PatientHomeController implements Initializable {
         Meds.setSelected(false);
         Immune.setSelected(false);
         Recommend.setSelected(true);
+
+        ChatVbox.setVisible(false);
+    }
+    public void handleChatButton(){
+        PersonalInfoBut.setSelected(false);
+        Visits.setSelected(false);
+        HistoryButton.setSelected(false);
+        ChatButton.setSelected(true);
+
+        PersonalVbox.setVisible(false);
+        VisitsToggles.setVisible(false);
+        HealthVbox.setVisible(false);
+        MedVbox.setVisible(false);
+        ImmVbox.setVisible(false);
+        RecVbox.setVisible(false);
+
+        topRec.setVisible(false);
+        botRec.setVisible(false);
+        personalRec.setVisible(false);
+        VisitRec.setVisible(true);
+
+        VisitsLabelThing.setVisible(false);
+        MainVisitsLabel.setVisible(false);
+
+
+        Health.setSelected(false);
+        Meds.setSelected(false);
+        Immune.setSelected(false);
+        Recommend.setSelected(false);
+
+        ChatVbox.setVisible(true);
+
+        String fileName = Email + ".txt";
+        boolean chatEnable = false;
+
+        try {
+            File myFile = new File(fileName);
+            Scanner searcher = new Scanner(myFile);
+            String[] chatArray = new String[1];
+            StringBuilder disp = new StringBuilder();
+            while (searcher.hasNextLine()) {
+                String[] array = searcher.nextLine().split(":");
+                if (array[0].equals("===============================")) {
+                    chatEnable = true;
+                }
+                else if(chatEnable){
+                    for(String s : array){
+                        disp.append(s).append("\n");
+                    }
+                }
+            }
+            searcher.close();
+            ChatBoard.setText(String.valueOf(disp));
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
+    public void handleSendMessage(ActionEvent event) throws IOException {
+        String fileName = Email + ".txt";
+        try {
+            String message = ChatTextField.getText();
+            FileWriter myFile = new FileWriter(fileName , true);
+            BufferedWriter messageFile = new BufferedWriter(myFile);
+            messageFile.write("Patient:" + message + "\n");
+            messageFile.close();
+            myFile.close();
+        }
+        catch(IOException exception) {
+            System.out.println("ERROR");
+            exception.printStackTrace();
+        }
+        boolean chatEnable = false;
 
-
+        try {
+            File myFile = new File(fileName);
+            Scanner searcher = new Scanner(myFile);
+            String[] chatArray = new String[1];
+            StringBuilder disp = new StringBuilder();
+            while (searcher.hasNextLine()) {
+                String[] array = searcher.nextLine().split(":");
+                if (array[0].equals("===============================")) {
+                    chatEnable = true;
+                }
+                else if(chatEnable){
+                    for(String s : array){
+                        disp.append(s).append("\n");
+                    }
+                }
+            }
+            searcher.close();
+            ChatBoard.setText(String.valueOf(disp));
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
 
 
     @Override

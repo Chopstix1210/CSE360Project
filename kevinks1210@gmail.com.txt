@@ -1,13 +1,14 @@
-FirstName:Kevin
-MiddleName:Jose
-LastName:Segovia
-DOB:09/17/2000
-Phone:(520)-450-1127
-Email:kevinks1210@gmail.com
-Pharmacy:Walgreens
-Insurance:help
-Health:Healthy person. There are no known conditions.
-Meds:No Medication.
-Imm:Is up-to-date on Immunizations shots.
-Rec:Get more sleep and drink more water.
-Visits:01/01/2021 - always tired and sleepy:01/02/2021 - keeps falling asleep
+FirstName~Kevin
+MiddleName~Jose
+LastName~Segovia
+DOB~09/17/2000
+Phone~(520)-450-1127
+Email~kevinks1210@gmail.com
+Pharmacy~Walgreens
+Insurance~help
+Health~Healthy person. There are no known conditions.
+Meds~No Medication.
+Imm~Is up-to-date on Immunizations shots.
+Rec~Get more sleep and drink more water.
+Visits~01/01/2021 - always tired and sleepy:01/02/2021 - keeps falling asleep
+===============================
