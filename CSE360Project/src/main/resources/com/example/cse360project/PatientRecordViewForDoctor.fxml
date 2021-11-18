@@ -34,5 +34,5 @@
    </Label>
    <TextField fx:id="LastNameField" layoutX="103.0" layoutY="225.0" prefHeight="47.0" prefWidth="221.0" promptText="Last Name" />
    <TextField fx:id="DOBField" layoutX="442.0" layoutY="225.0" prefHeight="47.0" prefWidth="177.0" promptText="MM/DD/YYYY" />
-   <Button fx:id="enterButton" layoutX="488.0" layoutY="298.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Enter" />
+   <Button fx:id="enterButton" layoutX="488.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleEnterButton" prefHeight="47.0" prefWidth="131.0" text="Enter" />
 </AnchorPane>

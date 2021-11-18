@@ -200,13 +200,12 @@
       </Label>
    </VBox>
    <VBox fx:id="ChatVbox" alignment="BOTTOM_CENTER" layoutX="386.0" layoutY="63.0" prefHeight="721.0" prefWidth="884.0">
-      <VBox fx:id="MessageVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="549.0" prefWidth="741.0">
-         <TextArea fx:id="ChatBoard" editable="false" prefHeight="563.0" prefWidth="741.0" text="."/>
+      <VBox fx:id="MessageVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="741.0">
+         <TextArea fx:id="ChatBoard" editable="false" prefHeight="563.0" prefWidth="741.0" text="." />
       </VBox>
       <HBox fx:id="ChatHbox" alignment="CENTER" prefHeight="87.0" prefWidth="884.0">
-         <TextField fx:id="ChatTextField" prefHeight="25.0" prefWidth="542.0" promptText="Chat Here"/>
-         <Button fx:id="SendChatButton" mnemonicParsing="false" onAction="#handleSendMessage" text="Button"/>
+         <TextField fx:id="ChatTextField" prefHeight="25.0" prefWidth="542.0" promptText="Chat Here" />
+         <Button fx:id="SendChatButton" mnemonicParsing="false" onAction="#handleSendMessage" text="Send" />
       </HBox>
    </VBox>
    <VBox layoutY="58.0" prefHeight="309.0" prefWidth="368.0">
